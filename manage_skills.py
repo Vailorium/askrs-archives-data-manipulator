@@ -85,7 +85,7 @@ def generateRefineSkillData(skill, hero_list):
     skill_id = unidecode(skill_id) # removes special characters
     
     if skill['refine_sort_id'] == 1:
-        if skill_data['restrictedTo']['weaponType'][0] == 15:
+        if skill_data['restrictedTo']['weaponType'][0] == 15 and skill_data['inheritable'] == True:
             image = 'wrathful_staff_eff'
             skill_id += "_wrathful"
             name += " (Wrathful)"

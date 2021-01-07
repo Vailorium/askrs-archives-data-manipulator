@@ -4,8 +4,6 @@ import extract_data, manage_heroes, manage_skills
 # Raw Data Variables
 translations = extract_data.getTranslations()
 raw_skill_list = extract_data.getRawSkills()
-with open('y.json', 'w', encoding='utf-8') as outfile:
-    json.dump(raw_skill_list, outfile, ensure_ascii=False)
 raw_hero_list = extract_data.getRawHeroes()
 seal_list = extract_data.getSealData() # returns [seal sid, is max tier skill (bool)]
 resplendent_hero_list = extract_data.getResplendentData() # returns list of hero pid who are resplendents
