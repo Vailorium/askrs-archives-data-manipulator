@@ -13,6 +13,20 @@ refine_dictionary = extract_data.getRefineDictionary() # gets refine list "weapo
 hero_list = manage_heroes.generateHeroList(raw_hero_list)
 hero_dict = manage_heroes.generateHeroDict(hero_list)
 
+skill_id_num_map = {}
+for skill in raw_skill_list:
+    if skill['id_num'] not in skill_id_num_map.keys():
+        skill_id_num_map[skill['id_num']] = skill['id_tag']
+    else:
+        print("ERROR: KEY ALREADY EXISTS")
+
+hero_id_num_map = {}
+for hero in raw_hero_list:
+    if hero['id_num'] not in hero_id_num_map.keys():
+        hero_id_num_map[hero['id_num']] = hero['id_tag']
+    else:
+        print("ERROR: KEY ALREADY EXISTS")
+
 # Skill Data
 skill_list = manage_skills.generateSkillList(raw_skill_list, hero_list)
 skill_dict = manage_skills.generateSkillDict(skill_list)
@@ -20,10 +34,8 @@ hero_dict, refine_skills, skill_dict = manage_skills.getRefineSkills(skill_dict,
 
 skill_list = manage_skills.skillListFromSkillDict(skill_dict)
 
-# updating hero data
 hero_list = manage_heroes.heroListfromHeroDict(hero_dict)
 
-# max tier skills
 max_tier_skills_by_category = manage_skills.getMaxTierSkills(raw_skill_list, hero_list, seal_list)
 
 # Export Data
@@ -45,3 +57,8 @@ with open('./output/max_tier_skills_by_categories.json', 'w', encoding='utf-8') 
     json.dump(max_tier_skills_by_category, outfile, ensure_ascii=False)
 with open('./output/refine_skill_data.json', 'w', encoding='utf-8') as outfile:
     json.dump(refine_skills, outfile, ensure_ascii=False)
+
+with open('./output/hero_id_num_map.json', 'w', encoding='utf-8') as outfile:
+    json.dump(hero_id_num_map, outfile, ensure_ascii=False)
+with open('./output/skill_id_num_map.json', 'w', encoding='utf-8') as outfile:
+    json.dump(skill_id_num_map, outfile, ensure_ascii=False)

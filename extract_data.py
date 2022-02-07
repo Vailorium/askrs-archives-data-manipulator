@@ -34,6 +34,21 @@ def getBlessingBonus(hero):
     if hero['legendary']:
         blessingBonus = hero['legendary']['bonus_effect']
     return blessingBonus
+
+def getARExtra(hero):
+    if hero['legendary']:
+        return hero['legendary']['ae_extra']
+    return False
+
+def getPairUp(hero):
+    if hero['legendary']:
+        return hero['legendary']['pair_up']
+    return False
+
+def getKind(hero):
+    if hero['legendary']:
+        return hero['legendary']['kind']
+    return 0
 #endregion
 
 #region DATA EXTRACTION

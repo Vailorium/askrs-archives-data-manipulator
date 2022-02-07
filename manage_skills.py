@@ -58,7 +58,8 @@ def generateSkillData(skill, hero_list):
         'stats': skill['stats'],
         'score': skill['score'],
         'cooldown': skill['cooldown_count'],
-        'fodder': fodder
+        'fodder': fodder,
+        'idNum': skill['id_num']
     }
 
 def generateRefineSkillData(skill, hero_list):

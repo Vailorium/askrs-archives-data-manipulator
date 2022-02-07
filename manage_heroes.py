@@ -65,7 +65,11 @@ def individualHeroData(hero):
             'unit_type': hero['weapon_type'],
             'skills': skills,
             'game': extract_data.removeMaskRaw(hero['origins'], len(extract_data.origins)),
-            'refresher': hero['refresher']
+            'refresher': hero['refresher'],
+            'pair_up': extract_data.getPairUp(hero),
+            'ar_extra': extract_data.getARExtra(hero),
+            'special_kind': extract_data.getKind(hero),
+            'id_num': hero['id_num']
         }
     except KeyError:
         pass

@@ -3,3 +3,4 @@ extracted/*/
 .vscode
 __pycache__
 output
+extracted/README.md
